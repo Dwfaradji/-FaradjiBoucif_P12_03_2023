@@ -1,0 +1,36 @@
+$color-secondary: #ffffff;
+
+.container-nav-vertical {
+  background: black;
+  display: flex;
+  flex-direction: column;
+  width: 117px;
+  height: 89.6vh;
+
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+
+    .item {
+      height: 64px;
+      width: 64px;
+      left: 26px;
+      top: 347px;
+      border-radius: 6px;
+      background: $color-secondary;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+
+  }
+
+
+}
