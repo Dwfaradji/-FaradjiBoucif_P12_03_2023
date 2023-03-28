@@ -1,0 +1,9 @@
+
+$color-primary:#E60000;
+$color-secondary: #ffffff;
+
+@mixin displayCenter{
+display: flex;
+align-items: center;
+justify-content: center;
+}

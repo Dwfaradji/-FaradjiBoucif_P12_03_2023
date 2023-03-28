@@ -24,7 +24,7 @@ function GrowingCircle() {
                 .transition() // On commence une transition.
                 .duration(1000) // La durée de la transition est de 1 seconde.
                 .attr("r", 70) // On met à jour le rayon du cercle à 70.
-                .transition() // On commence une nouvelle transition.
+                .transition() // On commence une nokilogramelle transition.
                 .duration(1000) // La durée de la transition est de 1 seconde.
                 .attr("r", 50) // On met à jour le rayon du cercle à 50.
                 .on("end", animateCircle); // On répète la fonction animateCircle à la fin de chaque animation.

@@ -1,6 +1,4 @@
-$color-primary:#E60000;
-$font-family:Roboto;
-
+@import "../../Sass/variables";
 
 .container-nav-horizontal {
   display: flex;
@@ -8,6 +6,9 @@ $font-family:Roboto;
   justify-content: space-between;
   background: black;
   height: 91px;
+  position: absolute;
+  width: 1324px;
+  z-index: 2;
 
   .logo {
     display: flex;
@@ -18,13 +19,10 @@ $font-family:Roboto;
       width: 183px;
       margin-left: 27px;
     }
-
-
   }
 
-
   .nav-items {
-    color: white;
+    color: $color-secondary;
     padding: 30px;
     justify-content: space-between;
     display: flex;
@@ -32,13 +30,11 @@ $font-family:Roboto;
 
     span {
       margin: 10px;
-      font-family: $font-family;
       font-style: normal;
       font-weight: 500;
       font-size: 24px;
       line-height: 24px;
-      color: #FFFFFF;
-
+      color: $color-secondary;
     }
   }
 

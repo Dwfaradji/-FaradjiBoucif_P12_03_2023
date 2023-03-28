@@ -1,0 +1,25 @@
+
+.container-principal {
+  display: flex;
+  position: absolute;
+  top: 104px;
+  left: 170px;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+
+.container-graphic{
+  display: flex;
+  flex-direction: column;
+  .graphic-group {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+}
+
+  .container-resume {
+    padding-top: 170px;
+  }
+
+}

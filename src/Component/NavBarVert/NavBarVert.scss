@@ -1,17 +1,16 @@
-$color-secondary: #ffffff;
+@import "../../Sass/variables";
 
 .container-nav-vertical {
   background: black;
   display: flex;
   flex-direction: column;
   width: 117px;
-  height: 89.6vh;
+  height: 900px;
+  position: absolute;
 
   .nav-items {
-    display: flex;
+    @include displayCenter;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: white;
     height: 100%;
 
@@ -23,14 +22,7 @@ $color-secondary: #ffffff;
       border-radius: 6px;
       background: $color-secondary;
       margin: 20px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+      @include displayCenter;
     }
-
-
   }
-
-
 }

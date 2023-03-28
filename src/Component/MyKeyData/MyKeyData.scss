@@ -1,0 +1,30 @@
+.icon-content {
+  height: 60px;
+  width: 60px;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0.1;
+
+  img {
+    height: 18.735294342041016px;
+    width: 18.838970184326172px;
+    color: black;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  height: 124px;
+  width: 258px;
+  border-radius: 5px;
+  margin: 20px;
+  background: #FBFBFB;
+  justify-content: center;
+  .value {
+
+    margin-left: 10px;
+  }
+}
