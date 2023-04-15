@@ -5,7 +5,6 @@ import iconSwimming from "../../Assets/Image/iconSwimming.svg";
 import iconBike from "../../Assets/Image/iconBike.svg";
 import iconBodyBuilding from "../../Assets/Image/iconBodyBuilding.svg";
 
-
 const NavBarVert = () => {
     return (
         <div className="container-nav-vertical">

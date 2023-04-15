@@ -49,13 +49,11 @@
 
   .line {
     @extend .line-parent;
-
   }
 
   .line-fixe {
     @extend .line-parent;
     border: 1px solid #DEDEDE;
-
   }
 
   ul {
@@ -64,6 +62,4 @@
     display: flex;
     justify-content: space-around;
   }
-
-
 }

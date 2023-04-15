@@ -1,39 +1,48 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {PieChart, Pie, Cell, ResponsiveContainer, Label, Sector, Customized} from "recharts";
-import {getUserData} from "../../Service/CallApiUser";
-import {logDOM} from "@testing-library/react";
+import PropTypes from "prop-types";
 
-export default function MyCircleChart() {
-    const [score, setScore] = useState(null);
-    const percentage = score * 100; // Valeur en pourcentage de la position finale du cercle
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getUserData(12);
-            setScore(data.todayScore);
-        };
-        fetchData();
-    }, []);
 
-    if (!score) {
-        return <div>Loading...</div>;
-    }
+/**
+ * A custom Pie Chart component that displays a circle with percentage label.
+ *
+ * @component
+ *
+ * @param {Object} props - The props that this component receives.
+ * @param {number} props.dataScore - The percentage value to display on the chart.
+ *
+ * @example
+ *   return <MyCircleChart dataScore={75} />
+ */
 
-    const data = [{name: "Group A", value: percentage / 100}];
+export default function MyCircleChart({dataScore}) {
+    const percentage = dataScore; // Valeur en pourcentage de la position finale du cercle
+
+    const data = [{name: "Group A", value: dataScore / 100}];
     const COLORS = ["#FF0000", "#FFFFFF"];
+    const endAngle = dataScore * 3.6 + 90; // Calcul de l'angle final en fonction de la valeur en pourcentage
 
-    const endAngle = percentage * 3.6 + 90; // Calcul de l'angle final en fonction de la valeur en pourcentage
-    const renderCustomizedLabel = ({ cx, cy, midAngle }) => {
+    /**
+     * Custom component for the PieChart label
+     *
+     * @function
+     * @param {Object} props - The props that this component receives.
+     * @param {number} props.cx - The horizontal position of the label.
+     * @param {number} props.cy - The vertical position of the label.
+     */
+
+    const renderCustomizedLabel = ({cx, cy}) => {
         return (
             <g>
-                <circle cx={cx} cy={cy} r={70} fill="#FFFFFF" />
+                <circle cx={cx} cy={cy} r={70} fill="#FFFFFF"/>
                 <text
                     x={cx}
                     y={cy}
                     textAnchor="middle"
                     fontSize={32}
                     fill="#000000"
-                > </text>
+                ></text>
             </g>
         );
     };
@@ -41,9 +50,8 @@ export default function MyCircleChart() {
     return (
         <ResponsiveContainer width="100%" aspect={1}>
             <PieChart width={500} height={300}>
-                    <Sector cx="50%" cy="50%" innerRadius={68} outerRadius={80} fill="#00000" />
-                <Customized component={renderCustomizedLabel} />
-
+                <Sector cx="50%" cy="50%" innerRadius={68} outerRadius={80} fill="#00000"/>
+                <Customized component={renderCustomizedLabel}/>
                 <Pie
                     data={data}
                     innerRadius={68}
@@ -51,12 +59,11 @@ export default function MyCircleChart() {
                     dataKey="value"
                     startAngle={90}
                     endAngle={endAngle}
-                    style={{ zIndex: 2 }}
+                    style={{zIndex: 2}}
                 >
                     {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
                     ))}
-
                     <Label position={"center"} fill="#00000" fontSize={30}>
                         {`${Math.round(percentage)}%`}
                     </Label>
@@ -65,3 +72,10 @@ export default function MyCircleChart() {
         </ResponsiveContainer>
     );
 }
+
+MyCircleChart.propTypes = {
+    /**
+     * The percentage value to display on the chart.
+     */
+    dataScore: PropTypes.number.isRequired,
+};

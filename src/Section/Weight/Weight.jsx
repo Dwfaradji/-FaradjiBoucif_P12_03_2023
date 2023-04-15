@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Weight.scss"
 import MyBarChat from "../../Component/MyBarChart/MyBarChat";
+import {getDataActivity} from "../../Service/CallApi";
 
 const Weight = () => {
-
+    const [dataActivity, setDataActivity] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getDataActivity(12);
+            setDataActivity(data);
+        };
+        fetchData();
+    }, []);
     return (
         <div className="container-weight">
             <div className="title">
@@ -19,7 +27,7 @@ const Weight = () => {
                     </div>
                 </div>
             </div>
-            <MyBarChat/>
+            <MyBarChat dataActivity={dataActivity}/>
         </div>
     );
 };

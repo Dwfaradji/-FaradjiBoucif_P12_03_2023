@@ -1,15 +1,16 @@
 @import "../../Sass/variables";
 
-.container-title h1{
+.container-title h1 {
   font-size: 48px;
   font-weight: 500;
   line-height: 24px;
   text-align: left;
 
-  .name{
+  .name {
     color: $color-primary;
   }
-  p{
+
+  p {
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;

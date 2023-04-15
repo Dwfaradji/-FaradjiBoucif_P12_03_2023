@@ -1,40 +1,29 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {LineChart, Line, XAxis, Tooltip, ResponsiveContainer} from 'recharts';
 import "./MylinChart.css"
-import {getDataSessions} from "../../Service/CallApiSessions";
+import PropTypes from "prop-types";
 
+/**
+ * MyLineChart is a component that displays a line chart.
+ * @param {object} props - The component props.
+ * @param {array} props.dataSession - The data to be displayed on the line chart.
+ * @returns {JSX.Element} - The MyLineChart component.
+ */
 
-export default function MyLineChart() {
-
-    const [dataSession, setDataSession] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await getDataSessions(12);
-            setDataSession([data]);
-        };
-        fetchData();
-    }, []);
-
+export default function MyLineChart({dataSession}) {
     if (!dataSession) {
         return <div>Loading...</div>;
     }
-
     const data = dataSession
-    const arrayDataSessions = data ? data.map((dataInfo) => dataInfo.data.sessions) : [];
-    const data3 = arrayDataSessions[0];
-    if (!data3) {
-        return <div>Loading...</div>;
-    }
-    const formatDay={1:"L",2:"M",3:"M", 4:"J",5:"V",6:"S",7:"D"}
-    const formattedData = data3.map((item) => ({
-        sessionLength: item.sessionLength,
-        day: formatDay[item.day],
-    }));
 
-
-
-    const CustomTooltip2 = ({active, payload, label}) => {
+    /**
+     * CustomTooltip is a customized component to display the tooltip.
+     * @param {object} props - The component props.
+     * @param {boolean} props.active - Indicates if the tooltip is active.
+     * @param {array} props.payload - The data to be displayed in the tooltip.
+     * @returns {string|null} - The tooltip content or null if the tooltip is not active.
+     */
+    const CustomTooltip = ({active, payload}) => {
         if (active && payload && payload.length) {
             return [`${payload[0].value} ${payload[0].name === 'sessionLength' ? 'min' : ''} `];
         }
@@ -45,7 +34,7 @@ export default function MyLineChart() {
         <ResponsiveContainer className="container-line" width="100%" height={100} m>
             <LineChart width={500}
                        height={300}
-                       data={formattedData}
+                       data={data}
                        margin={{
                            top: 20,
                            right: 30,
@@ -63,10 +52,13 @@ export default function MyLineChart() {
                 />
 
                 <Tooltip wrapperStyle={{backgroundColor: 'white', border: "5px solid white", outline: "none"}}
-                         content={<CustomTooltip2/>}  />
+                         content={<CustomTooltip/>}  />
             </LineChart>
         </ResponsiveContainer>
 
     );
 }
-// content={<CustomTooltip />}
+
+MyLineChart.propTypes = {
+    dataSession: PropTypes.array.isRequired,
+};
