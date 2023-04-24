@@ -1,5 +1,5 @@
 import React from 'react';
-import {LineChart, Line, XAxis, Tooltip, ResponsiveContainer} from 'recharts';
+import {LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Label} from 'recharts';
 import "./MylinChart.css"
 import PropTypes from "prop-types";
 
@@ -31,9 +31,9 @@ export default function MyLineChart({dataSession}) {
     };
 
     return (
-        <ResponsiveContainer className="container-line" width="100%" height={100} m>
-            <LineChart width={500}
-                       height={300}
+        <div className="test">
+        <ResponsiveContainer className="container-line" width="100%" aspect={2} >
+            <LineChart
                        data={data}
                        margin={{
                            top: 20,
@@ -42,6 +42,11 @@ export default function MyLineChart({dataSession}) {
                            bottom: 5,
                        }}
             >
+                <Label
+                    value="Session Length"
+                    position="top"
+                    style={{ textAnchor: "middle", fill: "#FFFFFF", fontSize: "16px" }}
+                />
                 <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2}/>
                 <XAxis
                     dataKey="day"
@@ -55,7 +60,7 @@ export default function MyLineChart({dataSession}) {
                          content={<CustomTooltip/>}  />
             </LineChart>
         </ResponsiveContainer>
-
+        </div>
     );
 }
 

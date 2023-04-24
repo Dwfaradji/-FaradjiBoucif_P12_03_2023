@@ -1,6 +1,7 @@
 import React from "react";
 import {PieChart, Pie, Cell, ResponsiveContainer, Label, Sector, Customized} from "recharts";
 import PropTypes from "prop-types";
+import "./MyCircleChart.css"
 
 
 
@@ -48,8 +49,8 @@ export default function MyCircleChart({dataScore}) {
     };
 
     return (
-        <ResponsiveContainer width="100%" aspect={1}>
-            <PieChart width={500} height={300}>
+        <ResponsiveContainer className="container-circle" width="100%" aspect={1.1}>
+            <PieChart>
                 <Sector cx="50%" cy="50%" innerRadius={68} outerRadius={80} fill="#00000"/>
                 <Customized component={renderCustomizedLabel}/>
                 <Pie
@@ -64,7 +65,7 @@ export default function MyCircleChart({dataScore}) {
                     {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
                     ))}
-                    <Label position={"center"} fill="#00000" fontSize={30}>
+                    <Label  position={"center"} fill="#00000" fontSize={30}>
                         {`${Math.round(percentage)}%`}
                     </Label>
                 </Pie>

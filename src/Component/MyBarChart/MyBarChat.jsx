@@ -28,7 +28,7 @@ export default function MyBarChart({dataActivity}) {
      * Custom tooltip component to display when hovering over chart data points.
      * @function
      * @param {Object} props - The props object containing tooltip properties.
-     * @param {boolean} props.active - Whether or not the tooltip is active.
+     * @param {boolean} props.active - Whether the tooltip is active.
      * @param {Object[]} props.payload - The data to display in the tooltip.
      */
     const CustomTooltip = ({active, payload}) => {

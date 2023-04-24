@@ -5,9 +5,8 @@
   display: flex;
   flex-direction: column;
   width: 117px;
-  height: 900px;
+  height: 100vh;
   position: absolute;
-
   .nav-items {
     @include displayCenter;
     flex-direction: column;

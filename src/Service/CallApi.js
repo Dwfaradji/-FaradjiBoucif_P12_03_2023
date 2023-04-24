@@ -26,8 +26,8 @@ export const getUserData = async (userId) => {
     try {
         const response = await axios.get(`${baseUrl}/user/${userId}`);
         const rawData = await response.data.data;
-        const activityData = new DataModeling({dataScore: rawData})
-        return activityData;
+        console.log(rawData)
+        return new DataModeling({dataUser: rawData});
     } catch (error) {
         throw new Error(`La requête a échoué: ${error.message}`);
     }
@@ -49,7 +49,7 @@ export const getDataPerformance= async (userId) => {
         const response = await axios.get(`${baseUrl}/user/${userId}/performance`);
         const rawData = await response.data.data;
         const sessionsPerf = new DataModeling({dataPerf: rawData})
-        return sessionsPerf.sessions
+        return sessionsPerf.perf
     } catch (error) {
         throw new Error(`La requête a échoué: ${error.message}`);
     }

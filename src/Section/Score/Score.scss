@@ -1,24 +1,25 @@
+
 .container-score {
   border-radius: 5px;
   background: #FBFBFB;
-  height: 263px;
-  width: 258px;
+  //height: 263px;
+  //width: 258px;
+
 
   span {
     margin: 20px;
     top: 20px;
     position: relative;
+    display: none;
   }
 
   .infos {
     position: relative;
-    top: -140px;
-    left: 80px;
+    top: -98px;
+    left: 49px;
     width: 70.7px;
     display: block;
   }
 
-  .recharts-legend-icon {
-    display: none;
-  }
+
 }

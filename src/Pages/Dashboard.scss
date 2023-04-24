@@ -1,24 +1,86 @@
 .container-principal {
-  display: flex;
   position: absolute;
   top: 104px;
   left: 170px;
-  flex-direction: row;
-  width: 100%;
-  height: 100vh;
+  width: 81vw;
+
+  .container-test{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .container-graphic {
-    display: flex;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 1.4fr 1fr;
     flex-direction: column;
+    width: 100%;
+    .graphic-head{
 
+    }
     .graphic-group {
-      display: flex;
+      display: grid;
       margin-top: 20px;
       justify-content: space-between;
+      grid-template-columns: 30% 30% 30%;
+      grid-template-rows: 187px;
     }
   }
 
   .container-resume {
-    padding-top: 170px;
+    display: flex;
   }
+
+
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .custom-select {
+    position: relative;
+    display: inline-block;
+    width: 23%;
+  }
+
+  .custom-select select {
+    display: inline-block;
+    width: 84%;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .custom-select select:focus {
+    outline: none;
+  }
+
+  .custom-select::after {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #333;
+    position: relative;
+    top: 72%;
+    right: 27px;
+    transform: translateY(-50%);
+  }
+
+  .custom-select select:hover, .custom-select select:focus {
+    background-color: #e6e6e6;
+  }
+
+
+
 }
+

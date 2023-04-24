@@ -3,15 +3,14 @@ import "./Time.scss"
 import MyLineChart from "../../Component/MyLineChart/MyLineChart";
 import {getDataSessions} from "../../Service/CallApi";
 
-const Time = () => {
+const Time = ({userId}) => {
     const [dataSession, setDataSession] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getDataSessions(12);
-            setDataSession(data);
+            return await getDataSessions(userId);
         };
-        fetchData();
-    }, []);
+        fetchData().then(res => setDataSession(res) );
+    }, [userId]);
     if (!dataSession) {
         return <div>Loading...</div>;
     }

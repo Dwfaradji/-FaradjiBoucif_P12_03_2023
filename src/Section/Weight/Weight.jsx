@@ -3,15 +3,14 @@ import "./Weight.scss"
 import MyBarChat from "../../Component/MyBarChart/MyBarChat";
 import {getDataActivity} from "../../Service/CallApi";
 
-const Weight = () => {
+const Weight = ({userId}) => {
     const [dataActivity, setDataActivity] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getDataActivity(12);
-            setDataActivity(data);
+            return await getDataActivity(userId)
         };
-        fetchData();
-    }, []);
+        fetchData().then(res => setDataActivity(res));
+    }, [userId]);
     return (
         <div className="container-weight">
             <div className="title">

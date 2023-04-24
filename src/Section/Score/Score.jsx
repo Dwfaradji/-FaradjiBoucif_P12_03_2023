@@ -3,16 +3,17 @@ import MyCircleChart from "../../Component/MyCircleChart/MyCircleChart";
 import "./Score.scss"
 import {getUserData} from "../../Service/CallApi";
 
-const Score = () => {
+const Score = ({userId}) => {
     const [score, setScore] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getUserData(12);
-            setScore(data.score.todayScore);
+            const data = await getUserData(userId);
+            console.log(data)
+            return data.score.todayScore
         };
-        fetchData();
-    }, []);
+        fetchData().then(res =>setScore(res) );
+    }, [userId]);
     if (!score) {
         return <div>Loading...</div>;
     }

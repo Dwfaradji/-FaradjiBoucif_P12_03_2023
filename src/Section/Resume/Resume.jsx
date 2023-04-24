@@ -8,15 +8,15 @@ import iconGlucides from "../../Assets/Image/iconGlucides.svg";
 import iconLipides from "../../Assets/Image/iconLipides.svg";
 import {getUserData} from "../../Service/CallApi";
 
-const Resume = () => {
+const Resume = ({userId}) => {
     const [data, setData] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getUserData(12);
-            setData(data.dataKey);
+            const data = await getUserData(userId);
+            return data.dataKey
         };
-        fetchData();
-    }, []);
+        fetchData().then(res => setData(res));
+    }, [userId]);
     if (!data) {
         return <div>Loading...</div>;
     }

@@ -3,20 +3,18 @@ import "./Performance.scss"
 import MyRadarChart from "../../Component/MyRadarChart/MyRadarChart";
 import {getDataPerformance} from "../../Service/CallApi";
 
-const Performance = () => {
+const Performance = ({userId}) => {
     const [dataPerf, setDataPerf] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getDataPerformance(12);
-            setDataPerf(data);
+         return await getDataPerformance(userId);
         };
-        fetchData();
-    }, []);
+        fetchData().then(res => setDataPerf(res));
+    }, [userId]);
 
     if (!dataPerf) {
         return <div>Loading...</div>;
     }
-
     return (
         <div className="container-performance">
             <MyRadarChart dataPerf={dataPerf}/>
