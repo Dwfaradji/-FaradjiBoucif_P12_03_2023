@@ -3,6 +3,9 @@ import "./Performance.scss"
 import MyRadarChart from "../../Component/MyRadarChart/MyRadarChart";
 import {getDataPerformance} from "../../Service/CallApi";
 
+/**
+ *  @param {number} userId - The ID of the user whose activity data should be retrieved.
+ * */
 const Performance = ({userId}) => {
     const [dataPerf, setDataPerf] = useState(null);
     useEffect(() => {

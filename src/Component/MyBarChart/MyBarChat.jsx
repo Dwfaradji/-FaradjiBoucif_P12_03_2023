@@ -57,14 +57,12 @@ export default function MyBarChart({dataActivity}) {
                 barCategoryGap={54}
             >
                 <CartesianGrid strokeDasharray="3 3" vertical="" horizontal="true"/>
-
                 <XAxis
                     dataKey="day"
                     stroke="#9B9EAC"
                     tickMargin={10}
                     tickLine={{display: 'none'}}
                 />
-
                 <YAxis yAxisId="left" orientation="left" stroke="#9B9EAC" display="none"/>
                 <YAxis
                     yAxisId="right"
@@ -74,7 +72,6 @@ export default function MyBarChart({dataActivity}) {
                     tickLine={{display: 'none'}}
                     axisLine={false}
                 />
-
                 <Tooltip wrapperStyle={{outline: "none"}} content={<CustomTooltip/>}/>
                 <Bar yAxisId="left" dataKey="calories" fill="red" barSize={7} radius={[3, 3, 0, 0]}/>
                 <Bar yAxisId="right" dataKey="kilogram" fill="black" barSize={7} radius={[3, 3, 0, 0]}/>

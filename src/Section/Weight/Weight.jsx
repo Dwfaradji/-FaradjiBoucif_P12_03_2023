@@ -3,6 +3,9 @@ import "./Weight.scss"
 import MyBarChat from "../../Component/MyBarChart/MyBarChat";
 import {getDataActivity} from "../../Service/CallApi";
 
+/**
+ *  @param {number} userId - The ID of the user whose activity data should be retrieved.
+ * */
 const Weight = ({userId}) => {
     const [dataActivity, setDataActivity] = useState([]);
     useEffect(() => {

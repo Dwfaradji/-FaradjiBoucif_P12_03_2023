@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import "./Resume.scss"
 import MyKeyData from "../../Component/MyKeyData/MyKeyData";
-
 import iconKcal from "../../Assets/Image/iconKcal.svg";
 import iconProteines from "../../Assets/Image/iconProteine.svg";
 import iconGlucides from "../../Assets/Image/iconGlucides.svg";
 import iconLipides from "../../Assets/Image/iconLipides.svg";
 import {getUserData} from "../../Service/CallApi";
 
+/**
+ *  @param {number} userId - The ID of the user whose activity data should be retrieved.
+ * */
 const Resume = ({userId}) => {
     const [data, setData] = useState(null);
     useEffect(() => {

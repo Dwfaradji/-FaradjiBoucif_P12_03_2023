@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './Title.scss';
 import {getUserData} from "../../Service/CallApi";
 
+/**
+ *  @param {number} userId - The ID of the user whose activity data should be retrieved.
+ * */
 const Title = ({userId}) => {
     const [userData, setUserData] = useState(null);
     useEffect(() => {

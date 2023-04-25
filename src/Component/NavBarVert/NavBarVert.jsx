@@ -9,7 +9,9 @@ const NavBarVert = () => {
     return (
         <div className="container-nav-vertical">
             <div className="nav-items">
-                <span className="item"> <img src={iconZen} alt=""/></span><span className="item"><img src={iconSwimming} alt=""/></span><span className="item"><img src={iconBike} alt=""/></span><span
+                <span className="item"> <img src={iconZen} alt=""/></span><span className="item"><img src={iconSwimming}
+                                                                                                      alt=""/></span><span
+                className="item"><img src={iconBike} alt=""/></span><span
                 className="item"><img src={iconBodyBuilding} alt=""/></span>
             </div>
         </div>

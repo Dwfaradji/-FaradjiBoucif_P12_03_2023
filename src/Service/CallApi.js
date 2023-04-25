@@ -4,6 +4,16 @@ import {DataModeling} from "./Modelisation";
 const baseUrl = 'http://localhost:3000';
 
 /**
+ * Displays an error message to the user.
+ * @function msgError
+ * @param {string} msg - The error message to display.
+ * @param {*} error - The error object or additional error data to include in the message.
+ */
+function msgError(msg, error) {
+    alert(msg, error)
+}
+
+/**
  * Retrieves activity data for a given user.
  * @async
  * @function getDataActivity
@@ -18,7 +28,7 @@ export const getDataActivity = async (userId) => {
         const activityData = new DataModeling({dataActivity: rawData});
         return activityData.activity;
     } catch (error) {
-        throw new Error(`La requête a échoué: ${error.message}`);
+        msgError('Error in getDataActivity:', error)
     }
 };
 
@@ -29,7 +39,7 @@ export const getUserData = async (userId) => {
         console.log(rawData)
         return new DataModeling({dataUser: rawData});
     } catch (error) {
-        throw new Error(`La requête a échoué: ${error.message}`);
+        msgError('Error in getUserData:', error)
     }
 };
 
@@ -40,17 +50,17 @@ export const getDataSessions = async (userId) => {
         const sessionsData = new DataModeling({dataSessions: rawData})
         return sessionsData.sessions;
     } catch (error) {
-        throw new Error(`La requête a échoué: ${error.message}`);
+        msgError('Error in getDataSessions:', error)
     }
 };
 
-export const getDataPerformance= async (userId) => {
+export const getDataPerformance = async (userId) => {
     try {
         const response = await axios.get(`${baseUrl}/user/${userId}/performance`);
         const rawData = await response.data.data;
         const sessionsPerf = new DataModeling({dataPerf: rawData})
         return sessionsPerf.perf
     } catch (error) {
-        throw new Error(`La requête a échoué: ${error.message}`);
+        msgError('Error in getDataPerformance:', error)
     }
 };

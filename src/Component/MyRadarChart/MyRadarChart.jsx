@@ -12,11 +12,11 @@ import PropTypes from "prop-types";
  * */
 export default function MyRadarChart({dataPerf}) {
     return (
-        <ResponsiveContainer className="container-radar" width="100%" aspect={1.2}  style={{ margin: '50px' }} >
-            <RadarChart cx="50%" cy="50%" outerRadius="40%" data={dataPerf} >
+        <ResponsiveContainer className="container-radar" width="100%" aspect={1.2} style={{margin: '50px'}}>
+            <RadarChart cx="50%" cy="50%" outerRadius="40%" data={dataPerf}>
                 <PolarGrid radialLines={null}/>
-                <PolarAngleAxis dataKey="kind" fontSize={15} tickSize={15}   />
-                <Radar name="Mike" dataKey="value" stroke="red" fill="red" fillOpacity={0.6}  />
+                <PolarAngleAxis dataKey="kind" fontSize={15} tickSize={15}/>
+                <Radar name="Mike" dataKey="value" stroke="red" fill="red" fillOpacity={0.6}/>
             </RadarChart>
         </ResponsiveContainer>
     );

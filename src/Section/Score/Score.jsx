@@ -3,6 +3,9 @@ import MyCircleChart from "../../Component/MyCircleChart/MyCircleChart";
 import "./Score.scss"
 import {getUserData} from "../../Service/CallApi";
 
+/**
+ *  @param {number} userId - The ID of the user whose activity data should be retrieved.
+ * */
 const Score = ({userId}) => {
     const [score, setScore] = useState(null);
 
@@ -12,7 +15,7 @@ const Score = ({userId}) => {
             console.log(data)
             return data.score.todayScore
         };
-        fetchData().then(res =>setScore(res) );
+        fetchData().then(res => setScore(res));
     }, [userId]);
     if (!score) {
         return <div>Loading...</div>;

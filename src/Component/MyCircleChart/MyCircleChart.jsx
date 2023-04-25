@@ -3,20 +3,16 @@ import {PieChart, Pie, Cell, ResponsiveContainer, Label, Sector, Customized} fro
 import PropTypes from "prop-types";
 import "./MyCircleChart.css"
 
-
-
 /**
  * A custom Pie Chart component that displays a circle with percentage label.
  *
  * @component
- *
  * @param {Object} props - The props that this component receives.
  * @param {number} props.dataScore - The percentage value to display on the chart.
  *
  * @example
  *   return <MyCircleChart dataScore={75} />
  */
-
 export default function MyCircleChart({dataScore}) {
     const percentage = dataScore; // Valeur en pourcentage de la position finale du cercle
 
@@ -32,7 +28,6 @@ export default function MyCircleChart({dataScore}) {
      * @param {number} props.cx - The horizontal position of the label.
      * @param {number} props.cy - The vertical position of the label.
      */
-
     const renderCustomizedLabel = ({cx, cy}) => {
         return (
             <g>
@@ -65,7 +60,7 @@ export default function MyCircleChart({dataScore}) {
                     {data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
                     ))}
-                    <Label  position={"center"} fill="#00000" fontSize={30}>
+                    <Label position={"center"} fill="#00000" fontSize={30}>
                         {`${Math.round(percentage)}%`}
                     </Label>
                 </Pie>

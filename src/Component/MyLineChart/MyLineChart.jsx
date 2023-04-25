@@ -31,35 +31,35 @@ export default function MyLineChart({dataSession}) {
     };
 
     return (
-        <div className="test">
-        <ResponsiveContainer className="container-line" width="100%" aspect={2} >
-            <LineChart
-                       data={data}
-                       margin={{
-                           top: 20,
-                           right: 30,
-                           left: 20,
-                           bottom: 5,
-                       }}
-            >
-                <Label
-                    value="Session Length"
-                    position="top"
-                    style={{ textAnchor: "middle", fill: "#FFFFFF", fontSize: "16px" }}
-                />
-                <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2}/>
-                <XAxis
-                    dataKey="day"
-                    stroke="#9B9EAC"
-                    tickMargin={10}
-                    tickLine={{display: 'none'}}
-                    axisLine={false}
-                />
+        <div>
+            <ResponsiveContainer className="container-line" width="100%" aspect={2}>
+                <LineChart
+                    data={data}
+                    margin={{
+                        top: 20,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                    }}
+                >
+                    <Label
+                        value="Session Length"
+                        position="top"
+                        style={{textAnchor: "middle", fill: "#FFFFFF", fontSize: "16px"}}
+                    />
+                    <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2}/>
+                    <XAxis
+                        dataKey="day"
+                        stroke="#9B9EAC"
+                        tickMargin={10}
+                        tickLine={{display: 'none'}}
+                        axisLine={false}
+                    />
 
-                <Tooltip wrapperStyle={{backgroundColor: 'white', border: "5px solid white", outline: "none"}}
-                         content={<CustomTooltip/>}  />
-            </LineChart>
-        </ResponsiveContainer>
+                    <Tooltip wrapperStyle={{backgroundColor: 'white', border: "5px solid white", outline: "none"}}
+                             content={<CustomTooltip/>}/>
+                </LineChart>
+            </ResponsiveContainer>
         </div>
     );
 }
