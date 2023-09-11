@@ -18,7 +18,6 @@ import PropTypes from 'prop-types';
  * @param {Object} props - The props object containing data for the Bar Chart.
  * @param {Object[]} props.dataActivity - The activity data to display in the chart.
  */
-
 export default function MyBarChart({dataActivity}) {
     if (!dataActivity) {
         return <div>Loading...</div>;
